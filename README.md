@@ -1,1 +1,1 @@
-# SpatialGenius
+# Automation-Of-Geo-spatial-Task
