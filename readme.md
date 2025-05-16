@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ### Download the Model
 
-The fine-tuned SpatialGenius model (~4GB) is available on Hugging Face:
+The fine-tuned SpatialGenius model (~1GB) is available on Hugging Face:
 [SpatialGenius Model](https://huggingface.co/At0038/SpatialGenius)
 
 ```python
@@ -128,9 +128,6 @@ SpatialGenius was created by fine-tuning Mixtral-8x7B-Instruct-v0.1 using a cust
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 📚 Citation
 
