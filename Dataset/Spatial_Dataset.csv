@@ -1,0 +1,50 @@
+Question,Command,Class
+I have a satellite image of deforestation in the Amazon. Can you convert this raster image into a shapefile so I can analyze the affected areas?,"gdal_polygonize.py raster.tif -f ""ESRI Shapefile"" output.shp",Vector
+I need to trim my property boundary shapefile using the city limits. How do I clip this vector layer?,ogr2ogr -clipsrc clip_layer.shp output.shp input.shp,Vector
+"I have separate shapefiles for roads, buildings, and parks in my neighborhood. Can you combine these into a single layer?",ogrmerge.py -o merged_output.shp input1.shp input2.shp,Vector
+My GPS data is in a different coordinate system than my mapping project. Convert this input.shp to WGS84 for me.,ogr2ogr -t_srs EPSG:4326 output.shp input.shp,Vector
+I need to share my flood zone map with a web developer. Please convert input.shp to GeoJSON format.,ogr2ogr -f GeoJSON output.json input.shp,Vector
+Can you give me the statistical information about this elevation raster of Mount Everest?,gdalinfo -stats raster.tif,Vector
+Find the 'PROJECT_ID' field in the metadata of this raster,gdalinfo input.tif | grep 'CUSTOM_METADATA_KEY',Metadata
+Save the metadata from the vegetation_index.tif file to a JSON file,gdalinfo -json input.tif > metadata.json,Metadata
+Get the coordinate system of the snowpack.tif file in WKT format,gdalsrsinfo -o wkt input.tif,Metadata
+Check for RPC metadata in the high_res_satellite.tif image,gdalinfo -mdd rpc input.tif,Metadata
+Display detailed metadata for all bands in the agricultural_fields.tif,gdalinfo -stats input.tif,Metadata
+Find out what compression method is used in the aerial_photo.tif,gdalinfo input.tif | grep 'COMPRESSION',Metadata
+Save the first band's metadata from this Landsat scene to a file,gdalinfo -b 1 input.tif > band1_metadata.txt,Metadata
+Update the 'DATA_OWNER' field in the metadata of this raster,gdal_edit.py -mo 'CUSTOM_KEY=NewValue' input.tif,Metadata
+Remove metadata from the XML domain of the traffic_analysis.tif file,gdal_edit.py -unsetmd DOMAIN input.tif,Metadata
+Transform my local coordinate system map to standard WGS84 for international collaboration.,gdalwarp -t_srs EPSG:4326 local_map.tif global_map.tif,Raster
+I need to divide my large national park map into smaller sections for printed trail guides.,gdalwarp -cutline trail_sections.shp -crop_to_cutline park_map.tif trail_guide.tif,Raster
+How much agricultural land is present in my county land use classification raster?,gdalinfo -stats agricultural_land.tif,Raster
+Merge our daytime and nighttime temperature maps to create a 24-hour temperature profile.,"gdal_calc.py -A day_temp.tif -B night_temp.tif --outfile=daily_temp.tif --calc=""A+B""",Raster
+The colors in our flood depth map aren't clear enough. Can you enhance the contrast?,gdal_translate -scale flood_depth.tif enhanced_flood_depth.tif,Raster
+Where are the data voids in our coastal bathymetry survey?,gdalinfo coastal_depth.tif,Raster
+Make our archaeological site map clearer by increasing its resolution by 50%.,gdal_translate -outsize 150% 150% archaeology.tif clear_archaeology.tif,Raster
+I just need to extract the reservoir area from our water resources map.,gdalwarp -te 345000 6789000 348000 6792000 water_resources.tif reservoir.tif,Raster
+Make sure our wildlife habitat map aligns correctly with actual GPS coordinates.,gdalwarp -s_srs EPSG:4326 habitat.tif georeferenced_habitat.tif,Raster
+What's the highest and lowest elevation in our mountain bike trail map?,gdalinfo -stats trail_dem.tif,Raster
+Incorporate the latest satellite data into our forest fire risk assessment map.,gdalwarp -s_srs EPSG:4326 satellite_image.tif updated_fire_risk.tif,Raster
+Our wetland map is too detailed for the regional overview. Reduce it to 25% of its original size.,gdal_translate -outsize 25% 25% wetland.tif regional_wetland.tif,Raster
+Split our watershed map into equal sections for the field survey teams.,gdalwarp -cutline survey_grids.shp -crop_to_cutline watershed.tif team_sections.tif,Raster
+Combine our 2023 and 2024 land use maps into a single dataset for the change detection analysis.,ogr2ogr land_use_combined.shp land_use_2023.shp && ogr2ogr -update -append land_use_combined.shp land_use_2024.shp,Vector
+Convert our trail network shapefile to GeoJSON format for the mobile hiking app.,ogr2ogr -f GeoJSON trail_network.json trail_network.shp,Vector
+Create a 10-meter safety buffer around all power lines for the emergency response plan.,"ogr2ogr -dialect SQLite -sql ""SELECT ST_Buffer(geometry, 10) FROM power_lines"" safety_buffer.shp power_lines.shp",Vector
+Extract only the roads within our county for the local transportation plan update.,ogr2ogr -clipsrc county_boundary.shp county_roads.shp regional_roads.shp,Vector
+Trim my vegetation survey to match the study area boundary for the environmental impact report.,ogr2ogr -clipdst study_area.shp study_vegetation.shp vegetation_survey.shp,Vector
+I need to combine these overlapping neighborhood areas into a single boundary. Can you do this?,"ogr2ogr -dialect SQLite -sql ""SELECT ST_Union(geometry) FROM input3"" dissolved.shp input3.shp",vector
+Convert this map to regular latitude-longitude format.,gdalwarp -t_srs EPSG:4326 input.tif output.tif,Raster
+"Cut out just the part of the image from pixel 100,200 with size 500x500.",gdal_translate -srcwin 100 200 500 500 input.tif output.tif,Raster
+Make this blurry satellite image look sharper.,gdalwarp -r near input.tif output.tif,Raster
+"Mark all the zero values in my map as ""no data"".",gdal_translate -a_nodata 0 input.tif output.tif,Raster
+Convert my classified land cover raster to shapes I can measure.,"gdal_polygonize.py input.tif -f ""ESRI Shapefile"" output.shp",Raster
+Draw elevation lines every 10 meters on my mountain_dem.tif.,gdal_contour -a elev input.tif output.shp -i 10,Raster
+Turn my water depth map into shapes for the boat navigation app.,"gdal_polygonize.py input.tif -f ""GeoJSON"" output.geojson",Raster
+What version is my file?,"gdalinfo input.tif | grep ""Version""",Metadata
+How many shapes are in my file?,"ogrinfo -so input.shp | grep ""Feature Count""",Metadata
+What's the highest point in my file?,"gdalinfo input.tif | grep ""Maximum""",Metadata
+What's the lowest point in my file?,"gdalinfo input.tif | grep ""Minimum""",Metadata
+Does my file have a title?,"gdalinfo input.tif | grep ""Title""",Metadata
+What's the average number in my file?,"gdalinfo -stats input.tif | grep ""Mean""",Metadata
+How many colors does my file have?,"gdalinfo input.tif | grep ""Color Table""",Metadata
+What's the middle number in my file?,"gdalinfo -stats input.tif | grep ""Median""",Metadata
