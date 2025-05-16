@@ -1,6 +1,6 @@
 # SpatialGenius: Automating Geospatial Tasks with AI
 
-![SpatialGenius Banner](Results/banner.png)
+![SpatialGenius Banner](misc/banner.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -102,7 +102,7 @@ with torch.no_grad():
 
 Our fine-tuned model demonstrates impressive performance in understanding geospatial tasks and generating appropriate GDAL commands:
 
-![Results Overview](Results/Outputs/merged.tif)
+![Results Overview](misc/result.png)
 
 More examples and visualizations are available in the [Results](/Results) directory.
 
