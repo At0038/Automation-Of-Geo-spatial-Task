@@ -110,7 +110,7 @@ More examples and visualizations are available in the [Results](/Results) direct
 
 ```
 SpatialGenius/
-├── Dataset/                # Custom geospatial prompt dataset
+├── Dataset/                # Custom geospatial prompt dataset 50 samples (for original dataset please contact the repository owner)
 ├── Fine-Tuning/            # Model fine-tuning code and scripts
 ├── Results/                # Performance visualizations
 └── requirements.txt        # Required dependencies
