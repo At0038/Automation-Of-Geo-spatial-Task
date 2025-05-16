@@ -28,7 +28,7 @@ eval_tokenizer = AutoTokenizer.from_pretrained(
 )
 
 from peft import PeftModel
-ft_model = PeftModel.from_pretrained(base_model, "./checkpoint-250")
+ft_model = PeftModel.from_pretrained(base_model, "./checkpoint-1000")
 
 eval_prompt = """You are a GDAL expert assistant that helps users with geospatial data processing tasks. Your job is to:
        1. Analyze the user's NLP questions for GIS analysis
