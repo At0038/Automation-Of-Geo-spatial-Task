@@ -102,7 +102,7 @@ with torch.no_grad():
 
 Our fine-tuned model demonstrates impressive performance in understanding geospatial tasks and generating appropriate GDAL commands:
 
-![Results Overview](Results/performance_summary.png)
+![Results Overview](Results/Outputs/clipped.tif)
 
 More examples and visualizations are available in the [Results](/Results) directory.
 
