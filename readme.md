@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![GDAL](https://img.shields.io/badge/GDAL-3.0+-green.svg)](https://gdal.org/)
-[![Hugging Face](https://img.shields.io/badge/HuggingFace-Model-orange)](https://huggingface.co/At0038/SpatialGenius)
+[![Hugging Face](https://img.shields.io/badge/HuggingFace-Model-orange)](https://huggingface.co/Ashutosh38/Geo-spatial-Automation)
 
 ## 🌍 Overview
 
