@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ### Download the Model
 
 The fine-tuned SpatialGenius model (~1GB) is available on Hugging Face:
-[SpatialGenius Model](https://huggingface.co/At0038/SpatialGenius)
+[SpatialGenius Model](https://huggingface.co/Ashutosh38/Geo-spatial-Automation)
 
 ```python
 # Download and set up the model
